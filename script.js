@@ -22,7 +22,7 @@ for(yourScore=0,aiScore=0,battle=1;;battle++){
     console.log(`BATTLE NUMBER ${battle}-------------------`)
     let posHands = ['squirtle','charmander','bulbasaur'];
     const aiHand = posHands[randomHand()];
-    let yourHand = prompt("choose between squirtle, charmander, and bulbasaur")
+    // let yourHand = prompt("choose between squirtle, charmander, and bulbasaur")
     
     switch (yourHand){
         case 'squirtle':
