@@ -5,43 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin RPS</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
 
     <header>
         <h1>Pokemon Starter Battle!</h1>
-        <h2>Choose Your PokeMon!</h2>
-    </header>
+        <h2>Choose Your Pokemon!</h2>
+    </header>   
 
     <main>
-        <p>Remember your training!</p>
-        <div>
-            <img src="images/charmander.png" alt="fire_pokemon">
-            <img src="images/bulbasaur.png" alt="grass_pokemon">
-            <img src="images/squirtle.png" alt="water_pokemon">
+        <p class="insp-message">Remember your training! "<span id="random-message"></span>"</p>
+
+        <div class="choices">
+            <button><img id="charmander" src="images/charmander.png" alt="Charmander"></button>
+            <button><img id="bulbasaur" src="images/bulbasaur.png" alt="Bulbasaur"></button>
+            <button><img id="squirtle" src="images/squirtle.png" alt="Squirtle"></button>  
         </div>
-        <p>You choose</p>
-        <p>Rival choose</p>
+
+        <p id="your-pokemon">You choose</p>
+        <p id="computer-pokemon">Rival choose</p>
+
         <div>
             <div>
-                <p>temporary P replace with picture of your pokemon</p>
-                <p>charmander attacked with x</p>
+                <img id="your-choice" src="images/pokeball.png" alt="pokeball">
+                <p id="your-attack">charmander attacked with x</p>
             </div>
+
             <div>
-                <p>battle number</p>
-                <p><span>your score</span> | <span>rival score</span></p>
-                <p>some effectiveness text about pokemon attack that wins</p>
+                <p id="round-counter">battle number</p>
+                <p><span id="your-score">your score</span> | <span id="computer-score">rival score</span></p>
+                <p id="attack-effectiveness">some effectiveness text about pokemon attack that wins</p>
             </div>
+
             <div>
-                <p>temporary P replace with picture of enemy pokemon</p>
-                <p>squitle attacked with y</p>
+                <img id="computer-choice" src="images/pokeball.png" alt="pokeball">
+                <p id="computer-attack">squitle attacked with y</p>
             </div>
+
         </div>
+
         <div>
             <p>hidden result area after all battle rounds</p>
             <button>play again button</button>
         </div>
+
     </main>
 
     <footer>
