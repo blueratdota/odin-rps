@@ -59,6 +59,34 @@ main{
     /* remove button border and default grey bg */
 }
 
+.choice-text{
+    display: flex;
+}
+
+.choice-text>p{
+    margin: 15px auto;
+    font-size: 2rem;
+    max-width: 300px;
+    border: 1px solid blue;
+}
+
+.battle-box{
+    margin: 15px 0 15px 0 ; /*top right down left*/
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-between;
+}
+
+.battle-message{
+    max-width: 300px;
+    text-align:left;
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+.battle-message>p{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
 
 img{
     width: 100px;

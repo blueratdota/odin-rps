@@ -18,24 +18,26 @@
         <p class="insp-message">Remember your training! "<span id="random-message"></span>"</p>
 
         <div class="choices">
-            <button><img id="charmander" src="images/charmander.png" alt="Charmander"></button>
-            <button><img id="bulbasaur" src="images/bulbasaur.png" alt="Bulbasaur"></button>
-            <button><img id="squirtle" src="images/squirtle.png" alt="Squirtle"></button>  
+            <button><img id="charmander" src="images/charmander.png" alt="charmander"></button>
+            <button><img id="bulbasaur" src="images/bulbasaur.png" alt="bulbasaur"></button>
+            <button><img id="squirtle" src="images/squirtle.png" alt="squirtle"></button>  
         </div>
 
-        <p id="your-pokemon">You choose</p>
-        <p id="computer-pokemon">Rival choose</p>
+        <div class="choice-text">
+            <p id="your-pokemon">You choose: <span>Charmander</span></p>
+            <p id="computer-pokemon">Rival choose: <span>Squirtle</span></p>
+        </div>
 
-        <div>
+        <div class="battle-box">
             <div>
                 <img id="your-choice" src="images/pokeball.png" alt="pokeball">
                 <p id="your-attack">charmander attacked with x</p>
             </div>
 
-            <div>
-                <p id="round-counter">battle number</p>
-                <p><span id="your-score">your score</span> | <span id="computer-score">rival score</span></p>
-                <p id="attack-effectiveness">some effectiveness text about pokemon attack that wins</p>
+            <div class="battle-message">
+                <p>Round: <span id="round-counter">0</span></p>
+                <p>Your Score: <span id="your-score">0</span> | Computer Score:<span id="computer-score">0</span></p>
+                <p id="attack-effectiveness">Charmanders's ember is not every effective against Squirtle!</p>
             </div>
 
             <div>

@@ -1,87 +1,90 @@
-// rps game
-
-// function randomHand(){
-//     return Math.floor(Math.random()*3)
-// }
-// function win(){
-//     return yourScore++;
-// }
-// function lose(){
-//     return aiScore++;
-// }
-// function draw(){
-//     return 0;
-// }
-
-
-// let yourScore=0;
-// let aiScore=0;
-
-// for(yourScore=0,aiScore=0,battle=1;;battle++){
-
-//     console.log(`BATTLE NUMBER ${battle}-------------------`)
-//     let posHands = ['squirtle','charmander','bulbasaur'];
-//     const aiHand = posHands[randomHand()];
-//     let yourHand = 'squirtle'
-//     // let yourHand = prompt("choose between squirtle, charmander, and bulbasaur")
-    
-//     switch (yourHand){
-//         case 'squirtle':
-//             if(aiHand=='charmander'){
-//                 win()
-//             }
-//             if(aiHand=='bulbasaur'){
-//                 lose()
-//             }
-//             if(aiHand=='squirtle'){
-//                 draw()
-//             }
-//             break;
-
-//          case 'charmander':
-//             if(aiHand=='bulbasaur'){
-//                  win()
-//             }
-//             if(aiHand=='squirtle'){
-//                 lose()
-//             }
-//             if(aiHand=='charmander'){
-//                 draw()
-//             }
-//             break;
-
-//         case 'bulbasaur':
-//             if(aiHand=='squirtle'){
-//                  win()
-//             }
-//             if(aiHand=='charmander'){
-//                 lose()
-//             }
-//             if(aiHand=='bulbasaur'){
-//                 draw()
-//            }
-//             break;
-//     }
-
-//     console.log(`AI has chosen ${aiHand}`);
-//     console.log(`You chose ${yourHand}`);
-//     console.log(`AI score ${aiScore}`);
-//     console.log(`YOUR score ${yourScore}`);
-
-//     if(yourScore==5){
-//         console.log("YOU win");
-//         break
-//     }
-//     if(aiScore==5){
-//         console.log("AI win");
-//         break
-//     }
-
-// }
-
 const charmanderPic = document.querySelector('#charmander')
+const bulbasaurPic = document.querySelector('#bulbasaur')
+const squirtlePic = document.querySelector('#squirtle')
 const yourChoicePic = document.querySelector('#your-choice')
-charmanderPic.addEventListener('click',function(){
-    console.log(charmanderPic.alt);
-    yourChoicePic.src = "images/charmander.png"
-})
+const computerChoicePic = document.querySelector('#computer-choice')
+const roundCounter = document.querySelector('#round-counter')
+const yourScoreCounter = document.querySelector('#your-score')
+const compScoreCounter = document.querySelector('#computer-score')
+
+const allPokemon = ['squirtle','charmander','bulbasaur']
+let yourPokemon = ''
+let computerPokemon = ''
+let yourScore = 0
+let computerScore = 0
+let round = 0
+
+function win(){
+    yourScore++
+    console.log(`win! round=${round} you=${yourScore} | computer=${computerScore}`);
+}
+
+function lose(){
+    computerScore++
+    console.log(`lose! round=${round} you=${yourScore} | computer=${computerScore}`);
+}
+
+function draw(){
+    console.log(`draw! round=${round} you=${yourScore} | computer=${computerScore}`);
+}
+
+function computerChoosePokemon(){
+    // console.log(allPokemon[Math.floor(Math.random()*3)])
+    return allPokemon[Math.floor(Math.random()*3)];
+}
+function update(){
+    roundCounter.textContent=round
+    yourScoreCounter.textContent=yourScore
+    compScoreCounter.textContent=computerScore
+}
+
+function playRound(yourPokemon,computerPokemon){
+    round++
+    switch (yourPokemon){
+        case 'squirtle':
+            if(computerPokemon=='charmander'){
+                win()
+            }
+            if(computerPokemon=='bulbasaur'){
+                lose()
+            }
+            if(computerPokemon=='squirtle'){
+                draw()
+            }
+            break;
+
+         case 'charmander':
+            if(computerPokemon=='bulbasaur'){
+                 win()
+            }
+            if(computerPokemon=='squirtle'){
+                lose()
+            }
+            if(computerPokemon=='charmander'){
+                draw()
+            }
+            break;
+
+        case 'bulbasaur':
+            if(computerPokemon=='squirtle'){
+                 win()
+            }
+            if(computerPokemon=='charmander'){
+                lose()
+            }
+            if(computerPokemon=='bulbasaur'){
+                draw()
+           }
+            break;
+    }
+}
+
+const choices = [charmanderPic,bulbasaurPic,squirtlePic]
+choices.forEach((e)=>e.addEventListener('click',function(){
+    yourPokemon = e.alt
+    computerPokemon= computerChoosePokemon()
+    yourChoicePic.src = `images/${e.alt}.png`
+    computerChoicePic.src = `images/${computerPokemon}.png`
+    playRound(yourPokemon,computerPokemon)
+    update()
+}))
